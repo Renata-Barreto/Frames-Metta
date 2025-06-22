@@ -73,6 +73,36 @@ async function detectObjects(video) {
         await tf.nextFrame();
     }
 
+    // Dados para o gráfico
+    const labels = history.map(f => f.idFrame);
+    const data = history.map(f => f.personCount);
+
+    // Criando o gráfico com Chart.js
+    const graphCanvas = document.getElementById('graph');
+    graphCanvas.style.display = 'block';
+
+    const ctxGrafico = graphCanvas.getContext('2d');
+    new Chart(ctxGrafico, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Pessoas por Frame',
+                data: data,
+                borderColor: 'blue',
+                backgroundColor: 'rgba(0,0,255,0.1)',
+                fill: true,
+                tension: 0.2
+            }]
+        },
+        options: {
+            responsive: false,
+            scales: {
+                x: { title: { display: true, text: 'Frame' } },
+                y: { title: { display: true, text: 'Quantidade de Pessoas' }, beginAtZero: true }
+            }
+        }
+    });
 
 }
 

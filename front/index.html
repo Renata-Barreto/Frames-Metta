@@ -7,6 +7,7 @@
     <title>Detectando pessoas e objetos</title>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
@@ -28,7 +29,12 @@
 
     <div class="content">
         <h1>Detectando pessoas</h1>
-        <p>Por favor aguarde o alerta de carregamento do programa para fazer o upload do seu vídeo...</p>
+        <p>Por favor, aguarde o alerta de carregamento do programa para fazer o upload do seu vídeo...</p>
+        <p>Ao final, role a página para ver o gráfico gerado!</p>
+        <div id="video-area"></div>
+        <div class="graph-area">
+            <canvas id="graph" width="600" height="300"></canvas>
+        </div>
     </div>
 
     
